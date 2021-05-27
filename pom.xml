@@ -35,6 +35,10 @@
       <artifactId>spring-boot-autoconfigure</artifactId>
     </dependency>
     <dependency>
+	  <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-reflect</artifactId>
     </dependency>
@@ -78,8 +82,8 @@
   </dependencyManagement>
 
   <build>
-<!--    <sourceDirectory>src/main/kotlin</sourceDirectory>-->
-<!--    <testSourceDirectory>src/test/kotlin</testSourceDirectory>-->
+    <!--    <sourceDirectory>src/main/kotlin</sourceDirectory>-->
+    <!--    <testSourceDirectory>src/test/kotlin</testSourceDirectory>-->
 
     <plugins>
       <plugin>
@@ -168,6 +172,37 @@
             </plugin>
           </dokkaPlugins>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>3.2.0</version>
+        <executions>
+          <execution>
+            <id>add-source-main-kotlin</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>src/main/kotlin</source>
+              </sources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>add-source-test-kotlin</id>
+            <phase>generate-test-sources</phase>
+            <goals>
+              <goal>add-test-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>src/test/kotlin</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
