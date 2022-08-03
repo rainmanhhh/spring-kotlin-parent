@@ -7,7 +7,7 @@
 
   <groupId>com.github.rainmanhhh</groupId>
   <artifactId>spring-kotlin-parent</artifactId>
-  <version>1.0.6</version>
+  <version>1.0.7</version>
   <packaging>pom</packaging>
 
   <name>springboot kotlin parent</name>
@@ -21,7 +21,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>11</java.version>
+    <java.version>17</java.version>
     <spring.boot.version>2.7.2</spring.boot.version>
     <spring-cloud.version>2021.0.3</spring-cloud.version>
     <spring-boot-admin.version>2.7.3</spring-boot-admin.version>
@@ -160,7 +160,7 @@
       <plugin>
         <groupId>org.jetbrains.dokka</groupId>
         <artifactId>dokka-maven-plugin</artifactId>
-        <version>1.6.21</version>
+        <version>${kotlin.version}</version>
         <executions>
           <execution>
             <phase>package</phase>
